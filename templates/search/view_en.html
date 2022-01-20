@@ -1,0 +1,83 @@
+{% extends "base_en.html" %}
+{% load static %}
+{% load search_en %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+{% endblock css %}
+
+
+            {% block content %}
+<div class="main-search">
+    <div class="child-search">
+
+            {% for object in object_list %}
+                {% with object|fu_search_en as klass %}
+                  {% if klass == 'Casino_en' %}
+                       <div class='card-search' onclick="location.href='https://casinogoodorbad.com/reviews/{{ object.slug }}'">
+                            <div class="card-search-child">
+                                <div class="card-search-title"><h2>{{ object.title }}</h2></div>
+                                <div class="card-search-url">https://casinogoodorbad.com/reviews/{{ object.slug }}</div>
+                                <div class="card-search-date">
+                                    <div class='card-search-img'><img src="{{ object.search_img }}" alt="logo {{ object.title }}"></div>
+                                    <div class="card-search-text"><p>{{ object.description }}&nbsp;</p></div>
+                                </div>
+                            </div>
+                       </div>
+                        <div class="break"></div>
+                      {% elif klass == 'PromoEn' %}
+                       <div class='card-search' onclick="location.href='https://casinogoodorbad.com/promotions/{{ object.slug }}'">
+                            <div class="card-search-child">
+                                <div class="card-search-title"><h2>{{ object.title }}</h2></div>
+                                <div class="card-search-url">https://casinogoodorbad.com/promotions/{{ object.slug }}</div>
+                                <div class="card-search-date">
+                                    <div class="card-search-text"><p>{{ object.description }}</p></div>
+                                </div>
+                            </div>
+                       </div>
+
+                        <div class="break"></div>
+                  {% elif klass == 'Article_en' %}
+
+                      <div class='card-search' onclick="location.href='https://casinogoodorbad.com/article/{{ object.slug }}'">
+                            <div class="card-search-child">
+                                <div class="card-search-title"><h2>{{ object.title }}</h2></div>
+                                <div class="card-search-url">https://casinogoodorbad.com/article/{{ object.slug }}</div>
+                                <div class="card-search-date">
+                                    <div class='card-search-img'><img src="{{ object.imgcloud }}" alt="{{ object.imagealt }}"></div>
+                                    <div class="card-search-text"><p>{{ object.description }}&nbsp;{{ object.body | truncatechars:100 | striptags | cut:"&mdash;" | cut:"&nbsp;" | cut:"&quot;" | cut:"#39;" }}</p></div>
+                                </div>
+                            </div>
+                       </div>
+                        <div class="break"></div>
+
+                  {% elif klass == 'NewsEn' %}
+                       <div class='card-search' onclick="location.href='https://casinogoodorbad.com/gambling-stories/{{ object.slug }}'">
+                            <div class="card-search-child">
+                                <div class="card-search-title"><h2>{{ object.title }}</h2></div>
+                                <div class="card-search-url">https://casinogoodorbad.com/gambling-stories/{{ object.slug }}</div>
+                                <div class="card-search-date">
+                                    <div class="card-search-text"><p>{{ object.description }}</p></div>
+                                </div>
+                            </div>
+                       </div>
+
+                        <div class="break"></div>
+
+                {% else %}
+                       <div class=''>
+                         <div class=''>
+                            <a href='{{ object.get_absolute_url }}'>{{ object }} | {{ object|fu_search_en }}</a>
+                        </div>
+                       </div>
+                    {% endif %}
+
+            {% endwith %}
+
+            {% empty %}
+
+
+{% endfor %}
+</div>
+</div>
+{% endblock content %}

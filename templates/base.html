@@ -1,0 +1,103 @@
+﻿{% load static %}
+{% load search %}
+
+<!DOCTYPE html>
+	<html lang="ru">
+                <head>
+                    <meta charset="utf-8">
+                    <title>{% block title %}casinogoodorbad.com{% endblock %}</title>
+                    <meta name="viewport" content="width=device-width, initial-scale=1" />
+                    <meta http-equiv="x-ua-compatible" content="ie=edge">
+                    {% block locale %}
+                    {% endblock locale %}
+                    <meta name="description" content="{% block desc %}{% endblock desc %}" />
+                    <link rel="canonical" href="{% block cann %}{% endblock cann %}" />
+                    <link rel="preconnect" href="https://www.google-analytics.com">
+                    <link rel="dns-prefetch" href="https://cloudinary.com/">
+                    <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" as="style">
+                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" />
+                    {% block meta_og %}
+                    {% endblock meta_og %}
+                    <link rel="icon" type="image/png" sizes="34x34" href="{% static 'favicon/d34.png' %}" />
+                    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'my/favicon/d16.png' %}" />
+                    <link rel="icon" type="image/png" sizes="48x48" href="{% static 'my/favicon/d48.png' %}" />
+                    <link rel="icon" type="image/png" sizes="70x70" href="{% static 'my/favicon/d70.png' %}" />
+                    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'my/favicon/d180.png' %}" />
+                    {% block css %}
+                    <link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+                    <link rel="stylesheet" href="{% static 'css/main.min.css' %}" />
+                    <link rel="stylesheet" href="{% static 'css/account.min.css' %}" />
+                    <link rel="stylesheet" href="{% static 'css/casino-list.min.css' %}" />
+                    <link rel="stylesheet" href="{% static 'css/article-list.min.css' %}" />
+                    <link rel="stylesheet" href="{% static 'css/article-detail.min.css' %}" />
+                    <link rel="stylesheet" href="{% static 'css/casino-review.min.css' %}" />
+                    <link rel="stylesheet" href="{% static 'css/contact.min.css' %}" />
+                    {% endblock css %}
+                </head>
+
+				<body>
+
+                                <header>
+
+                                                <nav>
+                                                        <ul class="nav-links" >
+
+                                                            <li class=""><a href="{% url 'main' %}" class="logo-text bord-1"><span class="logo-circle" style="font-family: Roboto,sans-serif;font-size: 22px; font-weight: 500;">talk</span></a></li>
+                                                            <li class="bord-2">
+
+<form method='GET' role="search" rel="nofollow"  action='{% url 'search' %}'>
+<input type="text" name="q" data-toggle="popover" aria-label="Поиск по сайту" data-placement="bottom" data-content="Press enter to search"  placeholder="Поиск...">
+</form>
+                                                            </li>
+
+
+
+                                                            <li class="item-reviews item "><a href="{% url 'casino_list' %}"  title="Обзоры онлайн-казино"  class="bord"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="mdi-poll-box-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M9 17H7V10H9M13 17H11V7H13M17 17H15V13H17M19.5 19.1H4.5V5H19.5M19.5 3H4.5C3.4 3 2.5 3.9 2.5 5V19C2.5 20.1 3.4 21 4.5 21H19.5C20.6 21 21.5 20.1 21.5 19V5C21.5 3.9 20.6 3 19.5 3Z" /></svg></a></li>
+                                                            <li class="item"><a href="{% url 'article_list' %}" title="Статьи обо всем, что связано с азартными играми"    class="bord"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="mdi-text-box-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M5,3C3.89,3 3,3.89 3,5V19C3,20.11 3.89,21 5,21H19C20.11,21 21,20.11 21,19V5C21,3.89 20.11,3 19,3H5M5,5H19V19H5V5M7,7V9H17V7H7M7,11V13H17V11H7M7,15V17H14V15H7Z" /></svg></a></li>
+                                                            <li class="item"><a href="{% url 'news_list' %}" title="Истории гэмблеров и людей с зависимостью"    class="bord"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="mdi-alpha-n-box-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M9,7H11L13,12V7H15V17H13L11,12V17H9V7M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M5,5V19H19V5H5Z" /></svg></a></li>
+                                                            <li class="item"><a href="{% url 'promo_list' %}" title="Акции проводимые онлайн-казино"    class="bord"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="mdi-gift-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M22,12V20A2,2 0 0,1 20,22H4A2,2 0 0,1 2,20V12A1,1 0 0,1 1,11V8A2,2 0 0,1 3,6H6.17C6.06,5.69 6,5.35 6,5A3,3 0 0,1 9,2C10,2 10.88,2.5 11.43,3.24V3.23L12,4L12.57,3.23V3.24C13.12,2.5 14,2 15,2A3,3 0 0,1 18,5C18,5.35 17.94,5.69 17.83,6H21A2,2 0 0,1 23,8V11A1,1 0 0,1 22,12M4,20H11V12H4V20M20,20V12H13V20H20M9,4A1,1 0 0,0 8,5A1,1 0 0,0 9,6A1,1 0 0,0 10,5A1,1 0 0,0 9,4M15,4A1,1 0 0,0 14,5A1,1 0 0,0 15,6A1,1 0 0,0 16,5A1,1 0 0,0 15,4M3,8V10H11V8H3M13,8V10H21V8H13Z" /></svg></a></li>
+
+
+
+
+                                                                        
+                                                                        {% if request.user.is_authenticated %}
+                                                                        <li class="item">
+                                                                            <a href="{% url "logout" %}" rel="nofollow" title="Выйти из аккаунта"   class="bord"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="mdi-arrow-left-bold-box-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M7,12L12,7V10H16V14H12V17L7,12M21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19A2,2 0 0,1 21,5M19,5H5V19H19V5Z" /></svg></a>
+                                                                        </li>
+                                                                        {% else %}
+                                                                        <li class="item">
+                                                                            <a href="{% url "login" %}" rel="nofollow" title="Войти в аккаунт"  class="bord"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="mdi-arrow-right-bold-box-outline" width="24" height="24" viewBox="0 0 24 24"><path d="M17,12L12,17V14H8V10H12V7L17,12M3,19V5A2,2 0 0,1 5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19M5,19H19V5H5V19Z" /></svg></a>
+                                                                        {% endif %}
+                                                                        </li>
+
+                                                            {% block lang %}
+                                                                <li class="item"><a href="{% url 'main_en' %}" title="English Version" class="bord"><img src="{% static 'lang64.svg' %}" alt="иконка смена языка"></a></li>
+                                                            {% endblock lang %}
+                                                        </ul>
+                                                </nav>
+                                </header>
+
+
+                                <main>
+                                    {% block content %}
+                                    {% endblock content %}
+                                </main>
+
+                                <footer>
+                                                    <div class="footer">
+                                                        <ul class="foot-links" style="font-family:Roboto,sans-serif;font-size:13px">
+                                                            <li><a class="foot-img-1 foot-mob-1" href="https://www.begambleaware.org/" rel="nofollow"><img src="https://res.cloudinary.com/dtmwfpxu9/image/upload/q_auto/v1584741078/logo/logo_dh78kd.png" title="Тебе нужна помощь? Перейди по ссылке."  alt="begambleaware логотип"></a></li>
+                                                            <li class="foot-item foot-mob-2"><a href="https://casinogoodorbad.com/terms-of-use.html" rel="nofollow">Правила</a></li>
+                                                            <li class="foot-item foot-mob-2"><a href="https://casinogoodorbad.com/about">О нас</a></li>
+                                                            <li class="foot-item foot-mob-3"><a href="https://casinogoodorbad.com/contact.html" rel="nofollow">Форма связи</a></li>
+                                                        </ul>
+                                                    </div>
+                                </footer>
+                            {% block script %}
+                                <script src="{% static 'js/progressive-image.js' %}"></script>
+                                <script src="{% static 'js/dropDownMenu.js' %}"></script>
+                            {% endblock script %}
+				</body>
+	</html>
+

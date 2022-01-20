@@ -1,0 +1,15 @@
+
+{% load static %}
+{% for promo_en in latest_promo %}
+        <div class="break__promo__review__30"></div>
+        <div class="promo__list">
+                <div class="linkblock" onclick="location.href='https://casinogoodorbad.com/promotions/{{ promo_en.slug }}'">
+                        <div class="card__news">
+                            <div class="news__main__child">
+                                <div class="news__main__page__title"><a href="https://casinogoodorbad.com/promotions/{{ promo_en.slug }}" class="promo__list__title__h2"><h3 style="font-family: 'IBM Plex Sans', sans-serif; font-weight: 500;font-size: 14px;z-index: 0;">{{ promo_en.title }}</h3></a></div>
+                            </div>
+                            <div class="news__description__main__page" style="font-family: 'Noto Sans', sans-serif; font-size: 13px;">{{ promo_en.description }}</div>
+                        </div>
+                </div>
+        </div>
+{% endfor %}

@@ -1,0 +1,33 @@
+{% load comments i18n crispy_forms_tags fluent_comments_tags %}
+
+{% if not form.target_object|comments_are_open %}
+    <p>{% trans "Comments are closed." %}</p>
+{% else %}
+  {% if not form.helper or not form.helper.form_tag %}
+    <form id="comment-form-{{ form.target_object.pk }}" data-object-id="{{ form.target_object.pk }}" action="{% comment_form_target %}" method="post" class="{% block form_class %}{{ form.helper.form_class|default:'js-comments-form comments-form form-horizontal' }}{% endblock %}"
+          data-ajax-action="{% url 'comments-post-comment-ajax' %}">
+      {% if next %}<div><input type="hidden" name="next" value="{{ next }}" /></div>{% endif %}
+  {% endif %}
+
+      {% block comment_form %}
+        {% block form_fields %}
+          {% crispy form %}
+        {% endblock %}
+
+        {% block form_actions %}
+          {% if not form.helper.inputs %}
+            <div class="form-group">
+                {% ajax_comment_tags for form.target_object %}
+                <button type="submit" name="post" class="button-comment" style="font-family: Roboto, sans-serif;font-size: 14px;"><svg xmlns="http://www.w3.org/2000/svg" width="32.01" height="29" viewBox="0.01 0 32.01 29" enable-background="new 0.01 0 32.01 29"><path fill="#B7BBBD" d="M16.006 21.938l-4.358-1.937-2.662 5.991 7.02-4.054z"/><path fill="#EBEBEB" d="M32.01 0l-32 15.84 9.018 3.899-.003 6.092 3.256-4.387 11.549 7.556 8.18-29z"/><path fill="#D1D5D7" d="M32.02 0l-19.594 21.785-3.406 4.209-.022-5.941 23.022-20.053z"/></svg>{% trans 'Comment' %}</button>
+                <button type="submit" name="preview" class="btn-prev">{% trans 'Preview' %}</button>
+            </div>
+          {% else %}
+            {% ajax_comment_tags for form.target_object %}
+          {% endif %}
+        {% endblock %}
+      {% endblock %}
+
+  {% if not form.helper or not form.helper.form_tag %}
+    </form>
+  {% endif %}
+{% endif %}

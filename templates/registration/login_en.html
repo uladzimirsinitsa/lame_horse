@@ -1,0 +1,54 @@
+{% extends 'base_en.html' %}
+{% load static %}
+
+
+
+{% block title %}Login to your account{% endblock %}
+{% block desc %}Here you can enter your account by entering your username and password or provide access to Gmail data.{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/account/login{% endblock cann %}
+
+
+
+{% block content %}
+    <div class="main-account">
+        <div class="child-account" style="font-family: Roboto,sans-serif;color: #373b40;font-size: 14px;">
+                <h1 style="font-family: Roboto,sans-serif;font-weight: 500;font-size: 14px;">LOG-IN</h1>
+
+                <div class="break-form">
+                </div>
+
+                {% if form.errors %}
+                <p>Your username and password did not match. Please try again.</p>
+                {% else %}
+                {% endif %}
+
+                <div class="login-form">
+                    <form action="{% url 'login' %}" method="post">
+
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="break-form">
+                        </div>
+
+                        <input type="hidden" name="next" value="{% url 'main_en' %}"/>
+                            <button class="login__button" type="submit" style="font-family: Roboto,sans-serif;color: #ffffff;font-size: 14px;">Log-in</button>
+                    </form>
+
+                    <div class="break-form">
+                    </div>
+
+                    <div class="social__button">
+                        <form action="{% url "social:begin" "google-oauth2" %}" method="post">
+                            {% csrf_token %}
+                            <button class="button__google" type="submit"><img class="" src="{% static 'btn_google_dark_disabled_ios.svg' %}" alt="google logo"><span>Sign in with Google</span></button>
+                        </form>
+                    </div>
+
+                    <div class="remember-registration">
+                        <div><a href="{% url "password_reset_en" %}">Forgot Password?</a></div>
+                        <div><a href="{% url "register_en" %}">Sign up</a></div>
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endblock content %}

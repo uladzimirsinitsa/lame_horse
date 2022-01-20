@@ -1,0 +1,49 @@
+{% extends 'base_en.html' %}
+{% load static %}
+
+{% block locale %}
+    <link rel="alternate" hreflang="ru"
+        href="https://casinogoodorbad.com/promo/tags" />
+    <link rel="alternate" hreflang="en"
+        href="https://casinogoodorbad.com/en/promo/tags" />
+    <link rel="alternate" hreflang="x-default"
+        href="https://casinogoodorbad.com/en/promo/tags" />
+{% endblock locale %}
+
+{% block title %}Promo of Online Casino | CasinoGoodOrBad{% endblock %}
+{% block desc%}Choose an online casino tag and you can see all the promotions from this casino.{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/en/promo/tags{% endblock cann %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/tags.min.css' %}" />
+{% endblock css %}
+
+
+{% block lang %}
+        <li class="item"><a href="https://casinogoodorbad.com/promo/tags" title="Ru" class="bord"><img src="{% static 'lang64.svg' %}" alt="icon language"></a></li>
+{% endblock lang %}
+
+{% block content  %}
+
+<div class="tag__title"><h1>Here you can find out about promotions in the best online casinos</h1></div>
+
+<div class="tag__main__div">
+    <div class="tag__child">
+                    {% for tag in tags %}
+                    <div class="">
+                        <a href="{{ tag.get_absolute_url}}" rel="nofollow" class="border__tag__list">#{{ tag.title }}</a>&nbsp;&nbsp;&nbsp;
+                    </div><br>
+                    {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}
+
+
+

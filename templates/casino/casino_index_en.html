@@ -1,0 +1,32 @@
+{% extends 'base_en.html' %}
+{% load static %}
+
+{% block title %}{% endblock %}
+{% block desc %}{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/reviews/{{casino_online_en.slug}}{% endblock cann %}
+
+
+{% block meta_og %}{% endblock meta_og %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tab.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/casino-review.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/article-detail.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/ajaxcomments.min.css' %}" />
+{% endblock css %}
+
+{% block box %}
+{% endblock %}
+
+<!-- ОСНОВНОЕ СОДЕРЖИМОЕ -->
+{% block content %}
+{% endblock content  %}
+
+
+{% block script %}
+<script async src="{% static 'js/tab.min.js' %}"></script>
+<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script defer src="{% static 'js/ajaxcomments.min.js' %}"></script>
+<script async src="{% static 'js/video.min.js' %}"></script>
+{% endblock script %}

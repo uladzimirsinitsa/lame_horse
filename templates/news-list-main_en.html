@@ -1,0 +1,18 @@
+{% load static %}
+
+{% for news in latest_news %}
+    <div class="card__news">
+		<div class="linkblock" onclick="location.href='{% url 'news_detail_en' slug=news.slug %}'">
+
+            <div class="news__main__child">
+                <div class="news__main__page__title"><a href="{% url 'news_detail_en' slug=news.slug %}"><h3 style="font-family: 'IBM Plex Sans',sans-serif;font-weight:500;font-size:14px">{{ news.title }}</h3></a></div>
+            </div>
+            <div class="news__description__main__page" style="font-family:'Noto Sans',sans-serif;font-size:13px">{{ news.description }}</div>
+		</div>
+        <div class="base__footer__list__tags">
+
+        </div>
+    </div>
+    <div class="break__line__promo"></div>
+
+{% endfor %}

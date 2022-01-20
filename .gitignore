@@ -1,0 +1,17 @@
+.bash_history
+.bashrc
+.cache/
+.cloud-locale-test.skip
+.coverage
+.digitalocean_passwords
+.profile
+.ssh/
+.vs/
+.wget-hsts/
+env/
+*.pyc
+.idea/
+myproject/settings
+myproject/settings.pyc
+myproject/.idea
+test

@@ -1,0 +1,46 @@
+{% extends 'base_en.html' %}
+{% load static %}
+
+
+{% block title %}Articles. Tag: #{{ tag.title }}{% endblock %}
+{% block desc%}All articles tagged with #{{ tag.title }} on the site CasinoGoodOrBad. Read, choose the best online casino, chat. Enjoy it!{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/en/article/tags/{{tag.slug}}{% endblock cann %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/article-list.min.css' %}" />
+{% endblock css %}
+
+{% block lang %}
+        <li class="item"><a href="https://casinogoodorbad.com/article/tags/{{tag.slug}}" title="Russian Version" rel="nofollow" class="bord"><img src="{% static 'lang64.svg' %}" alt="icon language"></a></li>
+{% endblock lang %}
+
+{% block content %}
+<div class="grid-article-main">
+    <div class="main__title"><h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:18px;color:#373b40;">All articles tagged with #{{ tag.title }}</h1></div>
+    <div class="grid-article-list">
+
+        {% for article in tag.articles_en.all %}
+        <div class="card-article-list">
+            <div class="linkblock scale" onclick="location.href='{% url 'article_detail_en' slug=article.slug %}'">
+                <div class="clarity category__main">
+                    <a href="https://casinogoodorbad.com/en/article/{{article.slug}}" data-href="{{article.imgcloud}}" class="progressive mob replace"><img src="{% static 'banner/main/432-240.jpg' %}" class="preview" alt="{{article.imagealtcloud}}"/></a>
+                    <div class="card-article-text">
+                        <div><a href="{% url 'article_detail_en' slug=article.slug %}"><h2 style="font-family: 'IBM Plex Sans', sans-serif; font-weight: 500;font-size: 14px;color:#373b40;">{{ article.title }}</h2></a></div>
+                        <div class="card-date-foot" style="font-family:'Noto Sans',sans-serif;font-size:12px;">{{ article.date_update | date:'SHORT_DATE_FORMAT' }}</div>
+                    </div>
+                </div>
+            </div>
+	    </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
+
+{% block script %}
+<script async src="{% static 'js/progressive-image.js' %}"></script>
+{% endblock script %}
+
+
+

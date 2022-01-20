@@ -1,0 +1,146 @@
+{% extends 'casino/casino_index_en.html' %}
+{% load cache %}
+{% load static %}
+{% load i18n %}
+{% load comments %}
+{% load promo-tag-en %}
+
+
+{% block title %}{{ object.title_meta }}{% endblock title %}
+{% block desc %}{{ object.description}}{% endblock desc %}
+{% block cann %}{{ object.canonical }}{% endblock cann %}
+
+{% block meta_og %}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pioner_vova" />
+<meta name="twitter:creator" content="@pioner_vova" />
+<meta name="twitter:title" content="{{ object.title_meta }}" />
+<meta name="twitter:description" content="{{ object.description }}" />
+{% endblock meta_og %}
+
+{% block content %}
+<div class="grid-review">
+
+            <div class="r-main">
+                        <article>
+                            <div class="grid-review-img">
+                                <a rel="nofollow"  href="{{ object.url_affilate }}"><img src="{{ object.logo834100 }}" alt="{{ object.alt_logo }}"></a>
+                            </div>
+
+
+
+
+                            <div class="w3-container shd-m-r">
+
+                                              <div class="w3-row back-white">
+                                                        <a href="javascript:void(0)" onclick="openCity(event, 'London');">
+                                                          <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding w3-border-red" style="font-family: 'IBM Plex Sans', sans-serif;font-size: 12px;color: #373b40;">REVIEWS</div>
+                                                        </a>
+                                                        <a href="javascript:void(0)" onclick="openCity(event, 'Paris');">
+                                                          <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" style="font-family: 'IBM Plex Sans', sans-serif;font-size: 12px;color: #373b40;">DETAILS</div>
+                                                        </a>
+                                                        <a href="javascript:void(0)" onclick="openCity(event, 'Tokyo');">
+                                                          <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding" style="font-family: 'IBM Plex Sans', sans-serif;font-size: 12px;color: #373b40;">VIDEO</div>
+                                                        </a>
+                                              </div>
+
+                                              <div id="London" class="w3-container city" style="display:block">
+                                                <div class="grid-review-main">
+                                                    <div class="title-casino"><h1 style="font-family: 'IBM Plex Sans',sans-serif;font-weight: 500;font-size: 16px;color: #373b40;">{{ object.title}}</h1></div>
+                                                    <div class="text-casino" style="font-family: 'Noto Sans',sans-serif;font-size: 14px;color: #373b40;">{{ object.text|safe}}</div>
+                                                </div>
+                                              </div>
+
+                                              <div id="Paris" class="w3-container city" style="display:none">
+                                                <div class="grid-review-table">
+                                                    <div class="table-flex">
+                                                        {% include 'casino/includes_en/obzor/casino_card_template.html' %}
+                                                    </div>
+                                                </div>
+                                              </div>
+
+                                              <div id="Tokyo" class="w3-container city" style="display:none">
+                                                    <div class="video">
+                                                        <a class="video__link" rel="nofollow" href="https://youtu.be/{{ object.youtube_img }}">
+                                                            <picture>
+                                                                <source srcset="https://i.ytimg.com/vi_webp/{{ object.youtube_img }}/maxresdefault.webp" type="image/webp">
+                                                                <img class="video__media" src="https://i.ytimg.com/vi/{{ object.youtube_img }}/maxresdefault.jpg" alt="{{ object.youtube_img_alt }}">
+                                                            </picture>
+                                                        </a>
+                                                        <button class="video__button" type="button" aria-label="Play video">
+                                                            <svg width="68" height="48" viewBox="0 0 68 48"><path class="video__button-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path class="video__button-icon" d="M 45,24 27,14 27,34"></path></svg>
+                                                        </button>
+                                                    </div>
+                                              </div>
+                            </div>
+                        </article>
+                        <div class="review__comment">
+                            <div class="container-article-detail-comment">
+                                        <div class="child-comment" style="font-family: Roboto, sans-serif;font-size: 14px;">
+                                            {% render_comment_form for object %}
+                                            {% render_comment_list for object %}
+                                        </div>
+                            </div>
+                        </div>
+            </div>
+            <aside>
+                <div class="r-aside">
+                    {% block asside-casino %}
+                        {% include 'casino/includes_en/casino-asside.html' %}
+                    {% endblock asside-casino %}
+                </div>
+                <div>
+                            {% if object.slug == 'betsson-casino' %}
+                                {% review_promo_betsson %}
+                                {% else %}
+                            {% endif %}
+
+                            {% if object.slug == 'betsafe-casino' %}
+                                {% review_promo_betsafe %}
+                            {% else %}
+                            {% endif %}
+
+                            {% if object.slug == 'wishmaker-casino' %}
+                                {% review_promo_wishmaker %}
+                            {% else %}
+                            {% endif %}
+
+                            {% if object.slug == 'bitstarz-casino' %}
+                                {% review_promo_bitstarz %}
+                            {% else %}
+                            {% endif %}
+
+                            {% if object.slug == 'pokerstars-casino' %}
+                                {% review_promo_pokerstars %}
+                            {% else %}
+                            {% endif %}
+
+                            {% if object.slug == 'williamhill-casino' %}
+                                {% review_promo_william %}
+                            {% else %}
+                            {% endif %}
+
+                            {% if object.slug == 'snabbis-casino' %}
+                                {% review_promo_snabbis %}
+                            {% else %}
+                            {% endif %}
+
+                            {% if object.slug == 'energy-casino' %}
+                                {% review_promo_energy %}
+                            {% else %}
+                            {% endif %}
+
+                            {% if object.slug == 'sportsbet-casino' %}
+                                {% review_promo_sportsbet %}
+                            {% else %}
+                            {% endif %}
+
+                </div>
+            </aside>
+
+
+
+
+</div>
+
+{% endblock content  %}

@@ -1,0 +1,46 @@
+.tag__title {
+	margin-top: 80px;
+	display: grid;
+	width: 767px;
+	min-height: 60px;
+	line-height: 60px;
+	background: white;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 4px;
+	border: 1px solid #C0C0C0;
+}
+
+.tag__main__div {
+    margin-top: 30px;
+	display: grid;
+	width: 767px;
+	min-height: 75vh;
+	background: white;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 30px;
+	border-radius: 4px;
+	border: 1px solid #C0C0C0;
+}
+
+.tag__title h1{
+	padding-left: 20px;
+}
+
+
+.border__tag__list {
+	border: 1px solid #ff6600;
+	padding: 4px;
+	color: white;
+	background: #ff6600;
+}
+
+
+.tag__child {
+	margin: 20px;
+}
+
+.tag__child a {
+	color: white;
+}

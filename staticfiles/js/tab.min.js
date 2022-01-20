@@ -1,0 +1,1 @@
+function openCity(c,e){var a;var b=document.getElementsByClassName("city");for(a=0;a<b.length;a++)b[a].style.display="none";var d=document.getElementsByClassName("tablink");for(a=0;a<b.length;a++)d[a].className=d[a].className.replace(" w3-border-red","");document.getElementById(e).style.display="block";c.currentTarget.firstElementChild.className+=" w3-border-red"};

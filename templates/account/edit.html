@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans 'Edit your account' %}{% endblock %}
+
+{% block content %}
+  <div class="main-account">
+            <div class="child-account">
+                <h1>{% trans 'EDIT YOUR ACCOUNT' %}</h1>
+                <form action="{% url 'edit' %}" method="post" enctype="multipart/form-data">
+                {{ user_form.as_p }}
+                {{ profile_form.as_p }}
+                {% csrf_token %}
+                    <p><button class="login__button" type="submit">{% trans 'Save' %}</button></p>
+                </form>
+            </div>
+  </div>
+{% endblock content %}

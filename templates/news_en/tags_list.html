@@ -1,0 +1,46 @@
+{% extends 'base_en.html' %}
+{% load static %}
+
+{% block locale %}
+    <link rel="alternate" hreflang="ru"
+        href="https://casinogoodorbad.com/news/tags" />
+    <link rel="alternate" hreflang="en"
+        href="https://casinogoodorbad.com/en/news/tags" />
+    <link rel="alternate" hreflang="x-default"
+        href="https://casinogoodorbad.com/en/news/tags" />
+{% endblock locale %}
+
+{% block title %}All Tags of News | CasinoGoodOrBad{% endblock %}
+{% block desc%}Just select a tag and you will see all the News of the CasinoGoodOrBad website with this tag. Enjoy reading!{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/en/news/tags{% endblock cann %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/tags.min.css' %}" />
+{% endblock css %}
+
+{% block lang %}
+        <li class="item"><a href="https://casinogoodorbad.com/news/tags" title="Russian Version" class="bord"><img src="{% static 'lang64.svg' %}" alt="icon language"></a></li>
+{% endblock lang %}
+
+{% block content  %}
+
+<div class="tag__title"><h1>Choose a tag and you will be able to see all News with this tag</h1></div>
+
+<div class="tag__main__div">
+    <div class="tag__child">
+                    {% for tag in tags %}
+                    <div class="">
+                        <a href="{{ tag.get_absolute_url }}" class="border__tag__list">#{{ tag.title }}</a>&nbsp;&nbsp;&nbsp;
+                    </div><br>
+                    {% endfor %}
+    </div>
+</div>
+
+
+
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}
+

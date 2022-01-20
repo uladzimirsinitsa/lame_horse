@@ -1,0 +1,318 @@
+.grid-review {
+    display: grid;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    grid-template-columns: 192px 192px 192px 192px 277px 67px;
+    background-color: #F2F2F2;
+    margin-top: 80px;
+    line-height: 21px;
+}
+
+.grid-review li {
+    margin-left: 40px;
+}
+
+.text-casino h2,h3,h4,h5,h6 {
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:16px;
+    font-weight:500;
+}
+
+.text-casino img {
+    padding-left: 20px;
+}
+
+.video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    background: white;
+}
+
+
+
+.video__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.card__news {
+    position: relative;
+    background: #fff;
+    border-radius: 4px;
+    padding-top: 7px;
+    border: 1px solid rgba(117,117,117,.25);
+    padding-left: 10px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    color: #373B40;
+}
+
+.card__news h3{
+    color: rgba(55, 59, 64, 0.93);
+}
+
+.card__news:hover {
+    border: 1px solid rgba(117, 117, 117, 0.35);
+}
+
+.card__news a:hover {
+    color: #373B40!important;
+}
+
+.break__promo__review__30 {
+    margin-top: 30px;
+}
+
+.video__button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 68px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+    outline: none;
+    display: none;
+}
+
+.video--enabled .video__button {
+    display: block;
+}
+
+.video__button-shape {
+    fill: #212121;
+    fill-opacity: 0.8;
+}
+
+.video:hover .video__button-shape,
+.video_button:focus .video__button-shape {
+    fill: #ff0000;
+    fill-opacity: 1;
+    cursor: pointer;
+}
+
+.video__button-icon {
+    fill: #ffffff;
+    cursor: pointer;
+}
+
+.w3-padding{
+    line-height: 29px;
+}
+.grid-review-img {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    margin-bottom: 30px;
+}
+
+.r-main {
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+.r-aside {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    overflow: hidden;
+}
+
+.shd-m-r {
+    box-shadow: 0 0 1px rgba(0,0,0,0.4);
+}
+
+.icon-pay img {
+    height: 27px;
+}
+
+
+.back-white {
+    background-color: #ffffff;
+
+}
+
+.grid-review-main {
+    background-color: #fff;
+    padding-bottom: 25px;
+}
+
+.title-casino, .text-casino {
+    margin-left: 35px;
+    margin-right: 25px;
+}
+
+
+
+.text-casino a {
+    color: #000000;
+    text-decoration: underline!important;
+
+}
+
+
+.grid-review a:hover {
+    color: #ff6600;
+    text-decoration: none!important;
+}
+
+.grid-review-main .title-casino {
+    line-height: 48px;
+    height:48px;
+}
+
+
+.grid-review-img img {
+    width: 100%;
+}
+
+
+.grid-review-table {
+    background-color: #fff;
+    grid-column-start: 1;
+    grid-column-end: 8;
+    padding: 20px 15px 50px 25px;
+}
+
+.grid-review-table a {
+    color: #ff6600;
+}
+
+.list-review {
+    list-style:none;
+}
+
+.table-flex {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.grid-review-img img {
+    width: 100%;
+}
+
+.grid-review-table .h div {
+    padding-left:20px;
+}
+
+.h {
+    border-bottom: 1px solid #f1f1f1;
+}
+
+
+
+@media screen and (max-width: 1152px) {
+
+
+.title-casino, .text-casino {
+    margin-left: 25px;
+    margin-right: 15px;
+}
+
+.grid-review {
+    display: grid;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    grid-template-columns: 20px 1fr 1fr 1fr 20px 275px 20px;
+    background-color: #F2F2F2;
+    margin-top: 60px;
+    line-height: 24px;
+}
+
+.grid-review-main {
+    display: grid;
+    width: 100%;
+    background-color: #fff;
+    padding-right: 0;
+    padding-bottom: 20px;
+}
+
+.r-main {
+    width: 100%;
+    grid-column-start: 2;
+  	grid-column-end: 5;
+    line-height: 21px;
+    font-weight: 400;
+}
+
+
+.r-aside {
+    grid-column-start: 6;
+  	grid-column-end: 7;
+    overflow: hidden;
+}
+
+.grid-review-img {
+    display:none;
+}
+
+.grid-review-table {
+    background-color: #fff;
+    width: 100%;
+    padding: 0 0 0 0;
+}
+
+.grid-review-table div {
+    word-wrap: break-word;
+}
+
+
+.table-flex {
+    width: 100%;
+    grid-template-columns: 1fr;
+}
+
+.title-casino {
+    overflow:hidden;
+}
+
+}
+
+@media screen and (max-width: 767px) {
+    .r-aside {
+    display: none;
+}
+
+.title-casino, .text-casino {
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.r-main {
+    width: 100%;
+    height: auto;
+}
+
+.r-main {
+    width: 100%;
+    grid-column-start: 1;
+  	grid-column-end: 5;
+    line-height: 21px;
+}
+
+.grid-review {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    background-color: #F2F2F2;
+    margin-top: 60px;
+    line-height: 21px;
+}
+
+table {
+    display: none;
+}
+
+}
+

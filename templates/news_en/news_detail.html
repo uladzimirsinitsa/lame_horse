@@ -1,0 +1,69 @@
+{% extends 'base_en.html' %}
+{% load static %}
+{% load i18n %}
+{% load comments %}
+
+
+{% block title %}{{ object.title }}{% endblock %}
+{% block desc %}{{object.description}}{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/gambling-stories/{{object.slug}}{% endblock cann %}
+
+{% block meta_og %}
+<meta property="og:site_name" content="casinogoodorbad.com" />
+<meta property="og:url" content="https://casinogoodorbad.com/gambling-stories/{{object.slug}}" />
+<meta property="og:title" content="{{ object.title }}" />
+<meta property="og:description" content="{{object.description}}" />
+<meta property="og:article:modified_time" content="{{object.date_update|date:'SHORT_DATE_FORMAT' }}" />
+
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pioner_vova" />
+<meta name="twitter:creator" content="@pioner_vova" />
+<meta name="twitter:title" content="{{ object.title }}" />
+<meta name="twitter:description" content="{{object.description}}" />
+
+{% endblock meta_og %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/article-detail.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/ajaxcomments.min.css' %}" />
+{% endblock css %}
+
+
+
+{% block content %}
+
+<div class="main-content">
+
+            <article>
+                    <div class="article-detail">
+                        <div class="article-detail-tags">
+
+                        </div>
+                        <div class="article-detail-title"><h1 style="font-family:'IBM Plex Sans',sans-serif;font-size:19px;font-weight:500;color:#373b40;">{{ object.title }}</h1></div>
+                        <div class="article-detail-date" style="font-family:'Noto Sans',sans-serif;font-size:13px;">Update: {{ object.date_update|date:'c'}}</div>
+                        <div class="article-detail-body" style="font-family:'Noto Sans',sans-serif;color:#373b40;font-size:14px"><em>{{ object.description|safe }}</em><br><br>{{ object.body|safe }}</div>
+                    </div>
+                    <div class="container-article-detail-comment">
+                            <div class="child-comment" style="font-family: Roboto, sans-serif;font-size: 14px;">
+                                {% render_comment_form for object %}
+                                {% render_comment_list for object %}
+                            </div>
+                    </div>
+            </article>
+            <aside>
+                {% include 'casino/includes_en/casino-asside.html' %}
+            </aside>
+
+</div>
+
+
+{% endblock content %}
+
+
+{% block script %}
+<script async src="{% static 'js/progressive-image.js' %}"></script>
+<script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script  defer src="{% static 'js/ajaxcomments.min.js' %}"></script>
+{% endblock script %}

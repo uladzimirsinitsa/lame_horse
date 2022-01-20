@@ -1,0 +1,14 @@
+{% load static %}
+{% for promo_en in latest_promo %}
+
+	<div class="main__page__promo__data">
+
+        <div class="main__page__promo__data__title" onclick="location.href='{% url 'promo_detail_en' slug=promo_en.slug %}'">
+                <a href="{% url 'promo_detail_en' slug=promo_en.slug %}" title="{{ promo_en.title }} - Promotion"><h3 style="font-family: 'Merriweather Sans', sans-serif;font-size: 15px">{{ promo_en.title }}</h3></a>
+        </div>
+        <div class="main__page__promo__data__description" onclick="location.href='{% url 'promo_detail_en' slug=promo_en.slug %}'" style="font-family: 'Rubik', sans-serif; font-size: 15px;">{{ promo_en.description }}</div>
+
+	</div>
+
+
+{% endfor %}

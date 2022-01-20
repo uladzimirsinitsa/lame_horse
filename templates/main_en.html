@@ -1,0 +1,128 @@
+{% extends 'base_en.html' %}
+{% load static %}
+{% load article-tag-en %}
+{% load promo-tag-en %}
+{% load news-tag-en %}
+
+
+
+{% block title %}casinogoodorbad.com{% endblock %}
+{% block desc %}Reviews of online casinos and bookmakers, exclusive articles. Tell gambling stories. Blackjack and jackpot slots fans - find a promotion for yourself.{% endblock desc %}
+{% block cann %}https://{{ request.META.HTTP_HOST }}{% url 'main_en' %}{% endblock cann %}
+
+{% block meta_og %}
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="casinogoodorbad.com" />
+<meta property="og:url" content="https://casinogoodorbad.com" />
+<meta property="og:title" content="casinogoodorbad.com" />
+<meta property="og:description" content="Reviews of online casinos and bookmakers, exclusive articles. Tell gambling stories. Blackjack and jackpot slots fans - find a promotion for yourself." />
+<meta property="og:image" content="{% static 'og-main.jpg' %}" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pioner_vova" />
+<meta name="twitter:creator" content="@pioner_vova" />
+<meta name="twitter:title" content="casinogoodorbad.com" />
+<meta name="twitter:description" content="Reviews of online casinos and bookmakers, exclusive articles. Tell gambling stories. Blackjack and jackpot slots fans - find a promotion for yourself." />
+<meta name="twitter:image" content="{% static 'og-main.jpg' %}" />
+{% endblock meta_og %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+{% endblock css %}
+
+
+{% block content %}
+
+<div class="grid-container">
+
+    <div id="openModal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" style="">Add story</h2>
+            <span class="close" onclick="document.getElementById('openModal').style.display='none'" title="Close" style="font-size:24px;font-weight:500;">&times;</span>
+          </div>
+          <div class="modal-body">
+            <form class="form__main__news" action="{% url 'main_en' %}" method="post" >
+                                        {% csrf_token %}
+                                <div class="fieldWrapper">
+
+                                        <input id="id_title__modal__news" type="text" name="title" maxlength="80" aria-label="Story Title" required placeholder="Enter title up to 80 characters..." style="font-family:'IBM Plex Sans',sans-serif;">
+                                </div>
+                                <div class="fieldWrapper">
+
+                                    <textarea id="id_body__modal__news" name="body" aria-label="Main content" required placeholder="Enter Story text..." style="font-family:'Noto Sans',sans-serif;"></textarea>
+                                </div>
+                                <div class="fieldWrapper">
+
+                                     <textarea id="id_description__modal__news" name="description" aria-label="Description" maxlength="160" required placeholder="Enter description up to 160 characters..." style="font-family:'Noto Sans',sans-serif;"></textarea>
+                                </div>
+
+                                <button class="button-comment-news-en" type="submit" name="button" style="font-family:Roboto, sans-serif;font-size:14px;"><svg xmlns="http://www.w3.org/2000/svg" width="32.01" height="29" viewBox="0.01 0 32.01 29" enable-background="new 0.01 0 32.01 29"><path fill="#B7BBBD" d="M16.006 21.938l-4.358-1.937-2.662 5.991 7.02-4.054z"/><path fill="#EBEBEB" d="M32.01 0l-32 15.84 9.018 3.899-.003 6.092 3.256-4.387 11.549 7.556 8.18-29z"/><path fill="#D1D5D7" d="M32.02 0l-19.594 21.785-3.406 4.209-.022-5.941 23.022-20.053z"/></svg>Post</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="promo__main__page">
+            {% show_latest_promo_en %}
+    </div>
+
+    <div class="news__block__container">
+                <div class="news__main__page">
+                    <div class="promo__main__link">
+
+                        <a href="{% url 'news_list_en' %}"><div class="promo__main__page__title" ><h2 style="font-family: '', sans-serif; font-weight: 500;font-size: 12px;">STORIES</h2></div></a>
+                    </div>
+
+                        {% show_latest_news_three %}
+                </div>
+    </div>
+
+
+</div>
+
+
+
+<div class="news__article__main">
+
+                    <div class="news__main__page display__none">
+
+                        <div class="promo__main__link">
+                            {% if request.user.is_authenticated %}
+                                <h2 style="font-weight: 500;line-height: 42px;font-size: 12px;">
+                                <span class="link__main__news__add" onclick="document.getElementById('openModal').style.display='block'">
+                                <span class="promo__main__page__title"
+                                      style="font-family: 'IBM Plex Sans', sans-serif;
+                                       font-weight: 500;
+                                       font-size: 12px;
+                                       background: linear-gradient(40deg, #28ea49, #50834d);
+                                       color: #ffffff;">ADD STORY</span></span></h2>
+                            {% else %}
+                                <h2 style="font-weight: 500;line-height: 42px;font-size: 12px;">
+                                <span class="link__main__news__add" onclick="location.href='{% url 'login' %}'">
+                                <span class="promo__main__page__title" style="font-family: 'IBM Plex Sans', sans-serif; font-weight: 500;font-size: 12px;background: linear-gradient(91deg, #626b68, #909090);color: #ffffff;">ADD STORY</span></span></h2>
+                            {% endif %}
+                        </div>
+
+                            {% show_latest_news %}
+                    </div>
+
+
+                <div class="article__main__page">
+                    <div class="grid-article-main">
+                        <div class="grid-article-list main__four__article">
+                            {% show_latest_articles_en %}
+                        </div>
+                    </div>
+                </div>
+
+</div>
+
+{% endblock content %}
+
+{% block script %}
+    <script src="{% static 'js/colorTitle.js' %}" ></script>
+{% endblock script %}

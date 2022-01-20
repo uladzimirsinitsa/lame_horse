@@ -1,0 +1,46 @@
+{% extends 'base_en.html' %}
+{% load static %}
+
+
+{% block title %}{{ tag.name }} Offers (2020){% endblock %}
+{% block desc%}All promotions Online Casino {{ tag.title }}. Read and play. Enjoy it!{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/en/promo/tags/{{tag.slug}}{% endblock cann %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/main.min.css' %}" />
+{% endblock css %}
+
+{% block lang %}
+        <li class="item"><a href="https://casinogoodorbad.com/promo/tags/{{tag.slug}}" rel="nofollow" title="Russian Version" class="bord"><img src="{% static 'lang64.svg' %}" alt="icon language"></a></li>
+{% endblock lang %}
+
+{% block content %}
+<div class="main__title__promo__list"><h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:18px;color:#373b40;">All promotions of {{ tag.name }}</h1></div>
+<div class="promo__list">
+        {% for promo in tag.promo.all %}
+                <div class="card__news">
+                    <div class="linkblock" onclick="location.href='{% url 'promo_detail_en' slug=promo.slug %}'" rel="nofollow">
+                        <div class="news__main__child">
+                            <div class="news__main__page__title"><a href="{% url 'promo_detail_en' slug=promo.slug %}" class="promo__list__title__h2"><h2 style="font-family: 'IBM Plex Sans', sans-serif; font-weight: 500;font-size: 14px;">{{ promo.title }}</h2></a></div>
+                        </div>
+                        <div class="news__description__main__page" style="font-family: 'Noto Sans', sans-serif; font-size: 13px;">{{ promo.description }}</div>
+                        <div class="foot__date__promo__list" style="font-family:'Noto Sans',sans-serif;font-size:12px;">{{ promo.date | date:'SHORT_DATE_FORMAT' }}
+                            {% if promo.over == "yes" %}
+                                    <span class="over__promo__list" style="font-family: Roboto, sans-serif;">is over</span>
+                            {% else %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+</div>
+{% endblock content %}
+
+{% block script %}
+<script async src="{% static 'js/progressive-image.js' %}"></script>
+{% endblock script %}
+
+
+
+

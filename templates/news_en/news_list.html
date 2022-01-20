@@ -1,0 +1,57 @@
+{% extends 'base_en.html' %}
+{% load static %}
+
+{% block title %}Everything You Need to Know About the Gambling Industry and History from Gamblers (2020){% endblock title %}
+{% block desc %}Here you can read stories about gambling addiction. You can add a story yourself or discuss it with others. The world of casinos is harsh and it is not only about jackpots and a fabulous wealth of winners, but also grief and disappointment.{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/gambling-stories{% endblock cann %}
+
+{% block meta_og %}
+<meta property="og:site_name" content="casinogoodorbad.com" />
+<meta property="og:url" content="https://casinogoodorbad.com/gambling-stories" />
+<meta property="og:title" content="Everything You Need to Know About the Gambling Industry and History from Gamblers (2020)" />
+<meta property="og:description" content="Here you can read stories about gambling addiction. You can add a story yourself or discuss it with others. The world of casinos is harsh and it is not only about jackpots and a fabulous wealth of winners, but also grief and disappointment." />
+
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@pioner_vova" />
+<meta name="twitter:creator" content="@pioner_vova" />
+<meta name="twitter:title" content="Everything You Need to Know About the Gambling Industry and History from Gamblers (2020)" />
+<meta name="twitter:description" content="Here you can read stories about gambling addiction. You can add a story yourself or discuss it with others. The world of casinos is harsh and it is not only about jackpots and a fabulous wealth of winners, but also grief and disappointment." />
+
+{% endblock meta_og %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/main.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/article-list.min.css' %}" />
+{% endblock css %}
+
+{% block content %}
+<div class="grid-article-main">
+<div class="main__title"><h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:18px;color:#373b40;">All stories from gamblers and people with gambling addiction</h1></div>
+<p style="font-family:'Noto Sans',sans-serif;font-size:13px">Here you can read stories about gambling addiction. You can add a story yourself or discuss it with others. The world of casinos is harsh and it is not only about jackpots and a fabulous wealth of winners, but also grief and disappointment.</p>
+    <div class="grid-article-list">
+
+        {% for news in object_list %}
+
+        <div class="card__news">
+            <div class="linkblock" onclick="location.href='{% url 'news_detail_en' slug=news.slug %}'">
+
+                <div class="news__main__child">
+                    <div class="news__main__page__title"><a href="https://casinogoodorbad.com/gambling-stories/{{ news.slug }}" class="article__list__title"><h2 style="font-family: 'IBM Plex Sans',sans-serif;font-weight:500;font-size:14px">{{ news.title }}</h2></a></div>
+                </div>
+                <div class="news__description__main__page" style="font-family:'Noto Sans',sans-serif;font-size:13px">{{ news.description }}</div>
+            </div>
+            <div class="base__footer__list__tags">
+
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}

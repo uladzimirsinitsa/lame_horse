@@ -1,0 +1,39 @@
+{% extends 'base_en.html' %}
+{% load static %}
+
+
+{% block title %}Streams{% endblock %}
+{% block desc %}All streams{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/streams{% endblock cann %}
+
+{% block meta_og %}
+{% endblock meta_og %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/casino-list.min.css' %}" />
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<!-- Don't use this in production: -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+{% endblock css %}
+<div id="root"></div>
+<script type="text/babel">
+
+</script>
+
+{% block content %}
+<script>
+class App extends React.Component {
+    render() {
+        return <h1>Hello</2>
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
+</script>
+{% endblock content %}
+
+{% block script %}
+<script async src="{% static 'js/card-flip-list-reviews.min.js' %}"></script>
+{% endblock script %}

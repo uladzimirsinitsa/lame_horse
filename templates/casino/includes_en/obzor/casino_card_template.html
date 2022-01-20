@@ -1,0 +1,76 @@
+{% load static %}
+
+
+
+
+            <div class="sofl">
+
+                <div class="h">
+                    <div class="stripy" style="font-family: 'IBM Plex Sans',sans-serif;font-weight: 500;color: #373b40;">Website</div>
+                    <div style="font-family: 'Noto Sans',sans-serif;font-size: 14px;color: #373b40;">{{ object.text_website |safe}}</div>
+                </div>
+
+                <div class="h">
+                    <div class="stripy" style="font-family: 'IBM Plex Sans',sans-serif;font-weight: 500;color: #373b40;">Deposit Methods</div>
+
+                    <div class="icon-pay" style="font-family: 'Noto Sans',sans-serif;font-size: 14px;color: #373b40;">{{ object.text_deposit |safe}}</div>
+                </div>
+
+                <div class="h">
+                    <div class="stripy" style="font-family: 'IBM Plex Sans',sans-serif;font-weight: 500;color: #373b40;">Withdrawal Methods</div>
+
+                    <div class="icon-pay" style="font-family: 'Noto Sans',sans-serif;font-size: 14px;color: #373b40;">{{ object.text_withdrawal_methods|safe}}</div>
+                </div>
+
+
+                <div class="h">
+                    <div class="stripy" style="font-family: 'IBM Plex Sans',sans-serif;font-weight: 500;color: #373b40;">Withdrawal Times</div>
+
+                    <div style="font-family: 'Noto Sans',sans-serif;font-size: 14px;color: #373b40;">{{ object.text_withdrawal_times|safe}}</div>
+                </div>
+
+                <div class="h">
+                    <div class="stripy" style="font-family: 'IBM Plex Sans',sans-serif;font-weight: 500;color: #373b40;">Withdrawal Limit</div>
+
+                    <div style="font-family: 'Noto Sans',sans-serif;font-size: 14px;color: #373b40;">{{ object.text_withdrawal_limit|safe}}</div>
+                </div>
+
+                <div class="h">
+                                {% if object.slug == 'williamhill-casino' %}
+                                    <div class="stripy" style="font-family: 'IBM Plex Sans',sans-serif;font-weight: 500;color: #373b40;">Clients residing in the specified jurisdictions are allowed to open an account</div>
+                                {% else %}
+                                    <div class="stripy" style="font-family: 'IBM Plex Sans',sans-serif;font-weight: 500;color: #373b40;">It is forbidden to open accounts for clients residing in jurisdictions</div>
+                                {% endif %}
+                                <div style="font-family: 'Noto Sans',sans-serif;font-size: 14px;color: #373b40;">{{ object.text_restricted_countries|safe}}</div>
+                </div>
+
+                <div class="h">
+                    <div class="stripy" style="font-family: 'IBM Plex Sans',sans-serif;font-weight: 500;color: #373b40;">Language</div>
+
+                    <div style="font-family: 'Noto Sans',sans-serif;font-size: 14px;color: #373b40;">{{ object.text_languages|safe}}</div>
+                </div>
+
+                <div class="h">
+                    <div class="stripy" style="font-family: 'IBM Plex Sans',sans-serif;font-weight: 500;color: #373b40;">License</div>
+
+                    <div style="font-family: 'Noto Sans',sans-serif;font-size: 14px;color: #373b40;">{{ object.text_licences|safe}}</div>
+                </div>
+
+                <div class="h">
+                    <div class="stripy" style="font-family: 'IBM Plex Sans',sans-serif;font-weight: 500;color: #373b40;">Chat</div>
+
+                    <div style="font-family: 'Noto Sans',sans-serif;font-size: 14px;color: #373b40;">{{ object.text_live_chat|safe}}</div>
+                </div>
+
+                <div class="h">
+                    <div class="stripy" style="font-family: 'IBM Plex Sans',sans-serif;font-weight: 500;color: #373b40;">Support Email</div>
+
+                    <div style="font-family: 'Noto Sans',sans-serif;font-size: 14px;color: #373b40;">{{ object.text_contact|safe}}</div>
+                </div>
+
+
+            </div>
+
+
+
+

@@ -1,0 +1,40 @@
+{% extends "base_en.html" %}
+{% load static %}
+
+
+{% block title %}Feedback form casinogoodorbad.com{% endblock %}
+{% block desc %}Write a letter, tell your story, or ask your question. We will answer the mailbox you specified.{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/contact.html{% endblock cann %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/contact.min.css' %}" />
+{% endblock css %}
+
+
+{% block box %}
+{% endblock %}
+
+{% block content %}
+<div class="grid-contact">
+    <div class="grid-contact-child">
+        <h1 style="font-family:Roboto,sans-serif;font-weight:500;font-size:13px;color:#373b40;">FEEDBACK FORM</h1>
+        <form action="{% url 'contact_form_en' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {% if field.errors %}
+                    {{ field.errors }}
+                {% endif %}
+                <input type="text" name="subject" maxlength="50" required id="id_subject" placeholder="Letter subject...">
+                <input type="email" name="email" maxlength="50" required id="id_email" placeholder="Email for reply...">
+                <textarea name="message" cols="40" rows="10" maxlength="1500" required id="id_message" placeholder="Message text..."></textarea>
+            </div>
+            <button type="submit" class="button-comment" style="font-family: Roboto, sans-serif;font-size: 14px;"><svg xmlns="http://www.w3.org/2000/svg" width="32.01" height="29" viewBox="0.01 0 32.01 29" enable-background="new 0.01 0 32.01 29"><path fill="#B7BBBD" d="M16.006 21.938l-4.358-1.937-2.662 5.991 7.02-4.054z"/><path fill="#EBEBEB" d="M32.01 0l-32 15.84 9.018 3.899-.003 6.092 3.256-4.387 11.549 7.556 8.18-29z"/><path fill="#D1D5D7" d="M32.02 0l-19.594 21.785-3.406 4.209-.022-5.941 23.022-20.053z"/></svg>Send</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}
+

@@ -1,0 +1,110 @@
+.grid-contact {
+    display:grid;
+    width:1152px;
+    margin:auto;
+    justify-content:center;
+    background-color:#fff;
+    margin-top:60px;
+    margin-bottom:20px;
+}
+
+.grid-contact-child h1 {
+    line-height: 55px;
+}
+
+.grid-contact-child {
+    display:grid;
+    padding:10px 10px 10px 10px;
+}
+
+#id_message{
+    width:100%;
+    resize: none;
+    border-radius: 0;
+    border: 1px solid rgba(117,117,117,.25);
+    padding-top: 5px;
+    line-height: 20px;
+}
+
+input#id_subject, textarea#id_message, input#id_email {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    color: #373b40;
+}
+
+#id_subject:focus, #id_message:focus, #id_email:focus {
+    border: 1px solid rgba(117,117,117,.5);
+    outline: none;
+}
+
+
+#id_subject {
+    width: 70%;
+    height:25px;
+    border-radius: 0;
+    border: 1px solid rgba(117,117,117,.25);
+}
+
+#id_email {
+    width: 70%;
+    height: 25px;
+    border-radius: 0;
+    border: 1px solid rgba(117,117,117,.25);
+}
+
+.button-comment {
+    width: 126px;
+    display: flex;
+    justify-items: center;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    line-height: 38px;
+    border: 1px solid transparent;
+    background: #0570e3;
+    color: white;
+    padding-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    outline: none;
+}
+
+.button-comment svg {
+    width: 20px!important;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+}
+
+.button-comment:active {
+    transform: scale(0.99);
+}
+
+.button-comment:hover {
+    background: #007bff;
+}
+
+@media screen and (max-width: 1152px) {
+.grid-contact {
+    display: grid;
+    width: 96%;
+    margin:auto;
+    justify-content: center;
+    background-color: #fff;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.grid-contact .form-group {
+    width: 99%;
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0;
+    padding: 0;
+}
+}
+

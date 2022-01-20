@@ -1,0 +1,59 @@
+from __future__ import unicode_literals
+import uuid
+from django.contrib.auth import get_user_model
+from django.db import models
+from django.urls import reverse
+from ckeditor_uploader.fields import RichTextUploadingField
+from myproject.utils import unique_slug_generator
+from django.db.models import Q
+
+
+class ArticleManager(models.Manager):
+    def search(self, query=None):
+        qs = self.get_queryset()
+        if query is not None:
+            or_lookup = (Q(title__icontains=query) |
+                         Q(description__icontains=query) |
+                         Q(slug__icontains=query) |
+                         Q(body__icontains=query))
+            qs = qs.filter(or_lookup).distinct()
+        return qs
+
+
+class Article_en(models.Model):
+    title = models.CharField(max_length=70, db_index=True)
+    imgcloud = models.CharField(max_length=300, blank=True, default="#")
+    imagealtcloud = models.CharField(max_length=80, blank=True, default="#")
+    slug = models.SlugField("Url", max_length=70, unique=True, default=uuid.uuid4)
+    thumbnail = models.ImageField("Picture", upload_to='media', blank=True, null=True)
+    body = RichTextUploadingField()
+    date = models.DateTimeField(auto_now_add=True)
+    date_update = models.DateTimeField(auto_now=True)
+    published = models.BooleanField("Published", default=False)
+    description = models.TextField(max_length=160)
+    objects = ArticleManager()
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('article_detail_en', kwargs={
+            "slug": self.slug
+        }
+                       )
+
+
+    def save(self, *args, **kwargs):
+        self.slug = unique_slug_generator(self, self.title)
+        super(Article_en, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = [
+            '-date_update'
+        ]
+
+

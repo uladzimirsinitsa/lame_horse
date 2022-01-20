@@ -1,0 +1,45 @@
+{% extends 'base_en.html' %}
+{% load static %}
+
+
+{% block title %}News Section. Tag: {{ tag.title }} | CasinoGoodOrBad{% endblock %}
+{% block desc%}All articles tagged with: {{ tag.title }} in the News section.{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/en/news/tags/{{tag.slug}}{% endblock cann %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/main.min.css' %}" />
+{% endblock css %}
+
+{% block lang %}
+    <li class="item"><a href="{% url 'tag_news_detail_url' tag.slug %}" title="Russian Version" rel="nofollow" class="bord"><img src="{% static 'lang64.svg' %}" alt="icon language"></a></li>
+{% endblock lang %}
+
+{% block content %}
+<div class="main__title__promo__list"><h1>All news with tag #{{ tag.slug }}</h1></div>
+<div class="promo__list">
+        {% for news in tag.news.all %}
+
+           <div class="card__news">
+                    <div class="linkblock" onclick="location.href='{% url 'news_detail_en' slug=news.slug %}'">
+
+                        <div class="news__main__child">
+                            <div class="news__main__page__title"><a href="{% url 'news_detail_en' slug=news.slug %}" class="promo__list__title__h2"><h2>{{ news.title }}</h2></a></div><div class="date__news__main__page">{{ news.date | date:'SHORT_DATE_FORMAT' }}</div>
+                        </div>
+                        <div class="news__description__main__page">{{ news.description }}</div>
+
+                    </div>
+                    <div class="base__footer__list__tags">
+                        {% for tag in news.tags.all %}
+                            <a href="{{ tag.get_absolute_url }}" rel="nofollow"><span class="tag__footer__news">{{ tag }}</span></a>
+                        {% endfor %}
+                    </div>
+            </div>
+        {% endfor %}
+</div>
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}
+
+

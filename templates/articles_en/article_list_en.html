@@ -1,0 +1,59 @@
+{% extends 'base_en.html' %}
+{% load static %}
+
+{% block title %}Articles of Gamblers{% endblock title %}
+{% block desc %}Publications about online casinos, gambling, slots, jackpots and bonuses. Read the analytical articles of casinogoodorbad.com, and no one can deceive you!{% endblock desc %}
+{% block cann %}https://{{ request.META.HTTP_HOST }}{% url 'article_list_en' %}{% endblock cann %}
+
+{% block meta_og %}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Articles of Gamblers" />
+<meta name="twitter:description" content="Publications about online casinos, gambling, slots, jackpots and bonuses. Read the analytical articles of casinogoodorbad.com, and no one can deceive you!" />
+<meta name="twitter:url" content="{% url 'article_list_en' %}" />
+{% endblock meta_og %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+<link rel="stylesheet" href="{% static 'css/article-list.css' %}" />
+{% endblock css %}
+
+
+{% block content %}
+<div class="grid-article-main">
+    <div class="main__title"><h1 style="font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:18px;color:#373b40;">Articles about everything related to gambling. No bullshit!</h1></div>
+    <div class="grid-article-list">
+
+            {% for article in object_list %}
+
+                <div class="card-article-list">
+
+                    <div class="linkblock scale" onclick="location.href='{% url 'article_detail_en' slug=article.slug %}'">
+
+                        <div class="clarity category__main">
+                            <a href="{% url 'article_detail_en' slug=article.slug %}" data-href="{{article.imgcloud}}" class="progressive mob replace"><img src="{% static 'banner/main/432-240.jpg' %}" class="preview" alt="{{article.imagealtcloud}}"/></a>
+                                <div class="card-article-text">
+                                    <div><a href="{% url 'article_detail_en' slug=article.slug %}"><h2 style="font-family: 'IBM Plex Sans', sans-serif; font-weight: 500;font-size: 14px;color:#373b40;">{{ article.title }}</h2></a></div>
+                                    <div class="card-date-foot" style="font-family:'Noto Sans',sans-serif;font-size:12px;"></div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
+
+{% block script %}
+<script async src="{% static 'js/progressive-image.js' %}"></script>
+{% endblock script %}
+
+
+
+
+
+
+
+
+
+

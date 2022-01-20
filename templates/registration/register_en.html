@@ -1,0 +1,22 @@
+{% extends "base_en.html" %}
+{% load static %}
+
+
+
+{% block title %}Create an account on the website CasinoGoodOrBad{% endblock %}
+{% block desc %}Choose your username and password. Save your data. Your account will be created in the system.{% endblock desc %}
+{% block cann %}https://casinogoodorbad.com/en/account/register{% endblock cann %}
+
+{% block content %}
+    <div class="main-account">
+            <div class="child-account" style="font-family: Roboto,sans-serif;color: #373b40;font-size: 14px;">
+                <h1 style="font-family: Roboto,sans-serif;font-weight: 500;font-size: 14px;">CREATE AN ACCOUNT</h1>
+                <form action="{% url 'register_en' %}" method="post">
+                {{ user_form.as_p }}
+                {% csrf_token %}
+                    <p><button class="login__button" type="submit" style="font-family: Roboto,sans-serif;color: #ffffff;font-size: 14px;">Create</button></p>
+                </form>
+            </div>
+    </div>
+
+{% endblock content %}

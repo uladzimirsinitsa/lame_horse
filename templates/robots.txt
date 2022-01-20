@@ -1,0 +1,11 @@
+User-agent: *
+
+Disallow: /account/
+Disallow: /en/account/
+
+Disallow: /search/
+Disallow: /en/search/
+
+
+Sitemap: https://casinogoodorbad.com/sitemap.xml
+
