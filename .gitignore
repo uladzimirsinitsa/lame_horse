@@ -12,6 +12,6 @@ env/
 *.pyc
 .idea/
 myproject/settings
-myproject/settings.pyc
+myproject/settings.py
 myproject/.idea
 test
